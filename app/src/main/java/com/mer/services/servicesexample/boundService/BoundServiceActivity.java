@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.mer.services.servicesexample.R;
 
-public class LauncherActivity extends Activity {
+public class BoundServiceActivity extends Activity {
 
     TextView textView;
     boolean isBind = false;
@@ -23,7 +23,7 @@ public class LauncherActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bound);
         textView = findViewById(R.id.text);
 
         Intent intent = new Intent(this,BoundServiceEx.class);
@@ -38,8 +38,8 @@ public class LauncherActivity extends Activity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             Log.d(TAG, "Activity onServiceConnected");
-            BoundServiceEx.LocalServiceEx localService = (BoundServiceEx.LocalServiceEx) service;
-            serviceEx = localService.getService();
+            LocalServiceBinder serviceBinder = (LocalServiceBinder) service;
+            serviceEx = serviceBinder.getService();
             isBind = true;
         }
 
