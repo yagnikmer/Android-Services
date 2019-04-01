@@ -9,12 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".boundService.BoundServiceActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".IntentService.IntentServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".boundService.BoundServiceEx" />
+        <service android:name=".IntentService.IntentServiceEx" />
     </application>
 
 </manifest>
